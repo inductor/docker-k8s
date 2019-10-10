@@ -1,0 +1,15 @@
+version: "3.7"
+services:
+  web-alpine:
+    build:
+      context: nginx
+      dockerfile: Dockerfile.alpine
+    ports:
+      - 80:80
+    depends_on:
+      - app-alpine
+
+  app-alpine:
+    build:
+      context: nodejs
+      dockerfile: Dockerfile.alpine
